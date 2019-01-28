@@ -15,6 +15,8 @@ function changePlayer() {
   } else {
     player = 1;
   }
+  
+  
 }
 function mat(a, b, type) {
   //console.log(a+''+b)
@@ -25,15 +27,8 @@ function mat(a, b, type) {
     } else {
     }
     if (type == 1 && value > 10) {
-      console.log("re");
-      console.log(value);
-      console.log(
-        parseInt(
-          value
-            .toString()
-            .replace(value.toString().substr(1, 2), player.toString())
-        )
-      );
+     
+      
       value = parseInt(
         value
           .toString()
@@ -52,6 +47,7 @@ function mat(a, b, type) {
       mat(a - 1, b, 1);
       mat(a, b + 1, 1);
       mat(a, b - 1, 1);
+      checkForWin();
     }
     if (type == 0) {
       changePlayer();
@@ -59,5 +55,31 @@ function mat(a, b, type) {
   }
   change();
 }
-function clicked() {}
+function checkForWin() {
+  var flag1 = 0;
+  var flag2 = 0; 
+  for (let i = 0; i < 6; i++) {
+    for (let j = 0; j < 6; j++) {
+     const x= document.getElementById(i + "" + j).innerHTML ;
+     if(x.substr(0,1) > 0){
+      if(x.substr(0,1) == 1)
+      {
+        flag1 = 1;
+      }
+      if(x.substr(0,1) == 2)
+      {
+        flag2 = 1;
+      }
+     }
+    }
+   
+  }
+  if(flag1 = 0 && flag2 == 1)
+  {
+    console.log('player 2');
+  }
+  if(flag1 = 1 && flag2 == 0){
+    console.log('player 1');
+  }
+}
 change();
