@@ -20,7 +20,7 @@ function changePlayer() {
 
 }
 function mat(a, b, type) {
-  //console.log(a+''+b)
+  
   let value = parseInt(document.getElementById(a + "" + b).innerHTML);
   if (value.toString().substr(0, 1) == player || value < 10 || type == 1) {
     if (value < 10) {
@@ -37,13 +37,13 @@ function mat(a, b, type) {
       );
     }
     value++;
-    //console.log(value);
+    
     if (value.toString().substr(1, 2) < 4) {
       matrix[a][b] = value;
     }
     if (value.toString().substr(1, 2) >= 4) {
       matrix[a][b] = 0;
-      // console.log(a+1);
+    
       mat(a + 1, b, 1);
       mat(a - 1, b, 1);
       mat(a, b + 1, 1);
@@ -128,7 +128,7 @@ function checkForWin() {
 change();
 function drawBall() {
 var valueq = document.getElementById('00').innerHTML;
-console.log(valueq);
+
 if(valueq.substr(1,2)==1)
 {
  var y = `<a class="single"></a><p id="00" onclick="mat(0,0,0)">${valueq}</p>`;
